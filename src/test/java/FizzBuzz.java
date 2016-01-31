@@ -27,9 +27,6 @@ public class FizzBuzz {
                 str += "FIZZBIZZ";
             }
 
-            // If `string` is still empty,
-            // `i` is not divisible by 3 or 5,
-            // so use the number instead.
             System.out.println(str);
 
         }
