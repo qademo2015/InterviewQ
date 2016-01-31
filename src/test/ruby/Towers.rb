@@ -8,7 +8,8 @@ def hanoi(n, a, b, c)
     puts"#{a} -> #{b}"
   end
 end
-...............
+
+мсиваеиваеирвке
 
 hanoi(6, "a", "b", "c")
 #hanoi(1, "a", "b", "c")
