@@ -25,4 +25,4 @@ def print_columns num
   end
 end
 
-print_columns 100
+print_columns 10

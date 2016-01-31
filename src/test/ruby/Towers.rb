@@ -5,11 +5,9 @@ def hanoi(n, a, b, c)
     puts "#{a} -> #{b}"
     hanoi(n-1, c, b, a)
   else
-    puts"#{a} -> #{b}"
+    puts "#{a} -> #{b}"
   end
 end
 
-мсиваеиваеирвке
-
-hanoi(6, "a", "b", "c")
+hanoi(2, "1", "2", "3")
 #hanoi(1, "a", "b", "c")
