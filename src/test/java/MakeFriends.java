@@ -2,6 +2,8 @@ import org.junit.Test;
 
 import java.util.HashMap;
 
+import static org.junit.Assert.*;
+
 /**
  * Created by abarabash on 1/29/16.
  */
@@ -9,17 +11,13 @@ public class MakeFriends {
 
     private HashMap<String, String> peopleHash = new HashMap<String, String>();
 
-    public MakeFriends() {
-            peopleHash.put("Igor", "Igor");
-            peopleHash.put("Aleksei", "Aleksei");
-            peopleHash.put("Andrei", "Andrei");
-            peopleHash.put("Vanya", "Vanya");
-
+    public void addMember(String name){
+        peopleHash.put(name, name);
     }
+
     private String root(String index) {
         while (!index.equals(peopleHash.get(index)))
             index = peopleHash.get(index);
-
         return index;
     }
 
@@ -39,11 +37,20 @@ public class MakeFriends {
 
     @Test
     public void Test001(){
-        System.out.println(peopleHash.toString());
-        System.out.println(isFriends("Igor", "Aleksei"));
-        make_friends("Igor", "Aleksei");
-        System.out.println(isFriends("Igor", "Aleksei"));
+
+        addMember("Igor");
+        addMember("Alex");
+        addMember("Sergey");
+
+        assertFalse(isFriends("Igor", "Alex"));
+
+        make_friends("Igor", "Alex");
+
+        assertTrue(isFriends("Igor", "Alex"));
+
         System.out.println(peopleHash.toString());
     }
+
+
 }
 

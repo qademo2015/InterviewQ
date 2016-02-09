@@ -13,7 +13,7 @@ def column(num)
     if result > 0
       previous_letters = column(result)
     else
-      previous_letters = " "
+      previous_letters = "\n"
     end
 
     print "#{previous_letters}#{final_letter}".upcase
@@ -25,4 +25,4 @@ def print_columns num
   end
 end
 
-print_columns 10
+print_columns 18877

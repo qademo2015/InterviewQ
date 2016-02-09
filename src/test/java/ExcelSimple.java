@@ -15,14 +15,12 @@ public class ExcelSimple {
 
 
     public static HashMap<Integer, String> createMap(String[] array) {
-
         HashMap<Integer, String> hashMap = new HashMap<>();
         int i = 1;
 
         for (String each : alphabet) {
             hashMap.put(i, each);
-            i++;
-        }
+            i++;}
 
         return hashMap;
     }
@@ -31,11 +29,10 @@ public class ExcelSimple {
     public static Stack format(int num) throws Exception {
 
         Stack<Integer> result = new Stack<>();
+
         int letternum;
 
         if (num > 0) {
-
-
             while (num > 0) {
                 letternum = num % 26;
                 num = (num - letternum) / 26;
@@ -51,10 +48,8 @@ public class ExcelSimple {
                 result.push(letternum);
             }
         }
-        else {
-            throw new Exception("out of bound");
+        else {throw new Exception("out of bound");}
 
-        }
         return result;
 
     }
