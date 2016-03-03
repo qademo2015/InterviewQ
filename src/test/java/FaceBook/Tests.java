@@ -3,6 +3,7 @@ package FaceBook;
 import org.junit.Test;
 
 import static FaceBook.Actions.*;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -43,6 +44,20 @@ public class Tests {
         makeFriends(igor, john);
 
         inDirectFriends(alex);
+    }
+
+    @Test
+    public void test004unFriend(){
+        Friend alex = new Friend("Alex");
+        Friend igor = new Friend("Igor");
+
+        makeFriends(alex, igor);
+
+        assertTrue(areFriends(alex, igor));
+
+        unFriend(alex, igor);
+
+        assertFalse(areFriends(alex, igor));
     }
 
 

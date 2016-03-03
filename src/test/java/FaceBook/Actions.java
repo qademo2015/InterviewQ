@@ -10,6 +10,12 @@ public class Actions {
         friend2.friends.add(friend1);
     }
 
+    public static void unFriend(Friend friend1, Friend friend2){
+
+        friend1.friends.remove(friend2);
+        friend2.friends.remove(friend1);
+    }
+
     public static Boolean areFriends(Friend friend1, Friend friend2){
         Boolean result1 = false;
         Boolean result2 = false;
