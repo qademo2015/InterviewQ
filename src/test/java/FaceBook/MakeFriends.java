@@ -1,15 +1,18 @@
+package FaceBook;
+
 import org.junit.Test;
 
 import java.util.HashMap;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by abarabash on 1/29/16.
  */
 public class MakeFriends {
 
-    private HashMap<String, String> peopleHash = new HashMap<String, String>();
+    private HashMap<String, String> peopleHash = new HashMap<>();
 
     public void addMember(String name){
         peopleHash.put(name, name);

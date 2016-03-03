@@ -13,6 +13,10 @@ public class CountWords {
 
         String[] strarray = sentence.split(" ");;
 
+        String fvfsg = "fdsgadg";
+        fvfsg.toCharArray();
+
+
         Map<String, Integer> strList = new HashMap<String, Integer>();
 
         for (String substring : strarray)
