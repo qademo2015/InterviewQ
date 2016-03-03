@@ -11,7 +11,7 @@ public class CountWords {
         sentence = sentence.toLowerCase();
         sentence = sentence.replace(".", "");
 
-        String[] strarray = sentence.split(" ");;
+        String[] strarray = sentence.split(" ");
 
         String fvfsg = "fdsgadg";
         fvfsg.toCharArray();
