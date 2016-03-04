@@ -1,10 +1,14 @@
 package FaceBook;
 
+import junit.framework.TestCase;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
 import static FaceBook.Actions.*;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static junit.framework.TestCase.assertEquals;
 
 /**
  * Created by abarabash on 3/3/16.
@@ -12,53 +16,108 @@ import static org.junit.Assert.assertTrue;
 public class Tests {
 
     @Test
-    public void test001MakeFriends(){
-        Friend alex = new Friend("Alex");
-        Friend igor = new Friend("Igor");
-        Friend john = new Friend("Jhon");
+    public void testGetDirectFriends(){
 
-        makeFriends(alex, igor);
+        Friend aaron = new Friend("Aaron");
+        Friend bella = new Friend("Bella");
 
-        assertTrue(areFriends(alex, igor));
+        System.out.println("running testGetDirectFriends()");
+
+
+        makeFriends(aaron, bella);
+        List<String> directFriends = directFriends(aaron);
+
+        ArrayList<String> expectedFriends = new ArrayList<String>();
+        expectedFriends.add("Bella");
+        assertListEquivalent(expectedFriends, directFriends);
+
+        System.out.println("testGetDirectFriends() passed successfully");
     }
 
     @Test
-    public void test002directFriends(){
+    public void testGetInDirectFriends() {
+        Friend aaron = new Friend("Aaron");
+        Friend bella = new Friend("Bella");
+        Friend asad = new Friend("Asad");
         Friend alex = new Friend("Alex");
-        Friend igor = new Friend("Igor");
-        Friend john = new Friend("Jhon");
 
-        makeFriends(alex, igor);
-        makeFriends(alex, john);
+        ArrayList<String> expectedFriends = new ArrayList<String>();
+        expectedFriends.add("Bella");
+        expectedFriends.add("Asad");
+        expectedFriends.add("Alex");
 
-        directFriends(alex);
+        System.out.println("running testGetInDirectFriends()");
+
+        makeFriends(aaron, bella);
+        makeFriends(bella, asad);
+        makeFriends(asad, alex);
+
+        List<String> directFriends = inDirectFriends(aaron);
+
+        assertListEquivalent(expectedFriends, directFriends);
+
+        System.out.println("testGetInDirectFriends() passed successfully");
     }
 
     @Test
-    public void test003inDirectFriends(){
+    public void testUnfriends() {
+        Friend asad = new Friend("Asad");
         Friend alex = new Friend("Alex");
-        Friend igor = new Friend("Igor");
-        Friend john = new Friend("Jhon");
 
-        makeFriends(alex, igor);
-        makeFriends(igor, john);
+        makeFriends(asad, alex);
 
-        inDirectFriends(alex);
+        ArrayList<String> expectedFriends = new ArrayList<String>();
+        expectedFriends.add("Alex");
+
+        List<String> result = directFriends(asad);
+
+
+        assertListEquivalent(expectedFriends, result );
+
+        unFriend(asad, alex);
+
+        expectedFriends = new ArrayList<String>();
+
+
+        result = directFriends(asad);
+
+        assertListEquivalent(expectedFriends, result);
+
     }
 
-    @Test
-    public void test004unFriend(){
-        Friend alex = new Friend("Alex");
-        Friend igor = new Friend("Igor");
+    //HELPER METHODS
+    private void assertListEquivalent(List<String> expected, List<String> actual) {
+        HashSet<String> expectedSet = new HashSet<String>(expected);
+        HashSet<String> actualSet = new HashSet<String>(actual);
 
-        makeFriends(alex, igor);
+        assertEquals("expected list and actual list are not of the same size\n" +
+                        "expected list: " + toString(expected) + "\n" +
+                        "actual list: " + toString(actual),
+                expectedSet.size(), actualSet.size());
 
-        assertTrue(areFriends(alex, igor));
-
-        unFriend(alex, igor);
-
-        assertFalse(areFriends(alex, igor));
+        for (String expectedSetItem : expectedSet) {
+            TestCase.assertTrue("expected list item " + expectedSetItem + " does not exist in actual list\n" +
+                            "expected list: " + toString(expected) + "\n" +
+                            "actual list: " + toString(actual),
+                    actualSet.contains(expectedSetItem));
+        }
     }
+
+    private String toString(List<String> names) {
+        StringBuilder sb = new StringBuilder();
+        for (String name : names) {
+            sb.append(name + ", ");
+        }
+        if (sb.length() > 0) {
+            sb.setLength(sb.length() - 2);
+        } else {
+            return "[empty list]";
+        }
+        return sb.toString();
+    }
+
+
+
 
 
 

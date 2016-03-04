@@ -1,5 +1,8 @@
 package FaceBook;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by abarabash on 3/3/16.
  */
@@ -31,16 +34,19 @@ public class Actions {
         return result1&&result2;
     }
 
-    public static void directFriends(Friend friend){
-        System.out.println("Friends:");
+    public static List<String> directFriends(Friend friend){
+        List<String> result= new ArrayList<String>();
+
         for(Friend each:friend.friends){
-            System.out.println(each.name);
+            result.add(each.name);
         }
+
+        return result;
     }
 
-    public static void breathFirstSearch(Friend root){
-        //if(root.name.equals(name))
-            //System.out.println("find in root");
+    public static List<String> breathFirstSearch(Friend root){
+
+        List<String> result = new ArrayList<String>();
 
         Queue queue = new Queue();
         root.visited = true;
@@ -51,17 +57,20 @@ public class Actions {
             for(Friend each: c.friends){
 
                 if(!each.visited){
-                    System.out.println(each.name + " ");
+                    result.add(each.name);
+
                     each.visited = true;
-                    //if(n.name.equals(name))
-                       // System.out.println("Find " + n);
                     queue.enqueue(each);
                 }
             }
         }
+
+        return result;
+
     }
 
-    public static void inDirectFriends(Friend friend){
-        breathFirstSearch(friend);
+    public static List<String> inDirectFriends(Friend friend){
+
+        return breathFirstSearch(friend);
     }
 }
