@@ -5,7 +5,6 @@ import org.junit.Test;
  */
 public class PrintTriangle {
 
-
     public static void printTriRecursion(int currHeight, int height) {
 
         if (currHeight == 1) {
@@ -19,7 +18,6 @@ public class PrintTriangle {
             printTriRecursion(currHeight - 1, height);
         }
     }
-
 
     public static void printTriangle(int height) {
 

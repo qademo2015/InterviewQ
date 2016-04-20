@@ -5,6 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by abarabash on 3/4/16.
  */
+
 class Node {
 
     int label;

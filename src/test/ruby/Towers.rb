@@ -1,6 +1,9 @@
 
 def hanoi(n, a, b, c)
-  if n > 1
+
+  if n == 0
+
+  elsif n > 1
     hanoi(n-1, a, c, b)
     puts "#{a} -> #{b}"
     hanoi(n-1, c, b, a)
@@ -9,5 +12,5 @@ def hanoi(n, a, b, c)
   end
 end
 
-hanoi(2, "1", "2", "3")
+hanoi(6, "1", "2", "3")
 #hanoi(1, "a", "b", "c")
