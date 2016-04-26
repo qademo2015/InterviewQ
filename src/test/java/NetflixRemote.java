@@ -14,8 +14,6 @@ public class NetflixRemote {
 
     HashMap<Character, Integer[]> keyboard = new HashMap<Character, Integer[]>();
 
-    String
-
     Integer[] currentPostion = new Integer[] {1,1};
 
     public void createaKeyboard(){
