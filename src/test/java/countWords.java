@@ -6,6 +6,20 @@ import java.util.Map;
 
 public class CountWords {
 
+
+
+    public static void printMap(Map<String, Integer> stringMap){
+        Iterator iterator = stringMap.entrySet().iterator();
+
+        while (iterator.hasNext())
+        {
+            Map.Entry pair = (Map.Entry)iterator.next();
+            System.out.println(pair.getKey() + " = " + pair.getValue());
+            iterator.remove();
+        }
+    }
+
+
     public static void countWords(String sentence)
     {
         sentence = sentence.toLowerCase();
@@ -32,14 +46,7 @@ public class CountWords {
 
         }
 
-        Iterator iterator = strList.entrySet().iterator();
-
-        while (iterator.hasNext())
-        {
-            Map.Entry pair = (Map.Entry)iterator.next();
-            System.out.println(pair.getKey() + " = " + pair.getValue());
-            iterator.remove();
-        }
+        printMap(strList);
     }
 
 
