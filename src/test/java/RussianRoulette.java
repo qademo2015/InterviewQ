@@ -6,13 +6,9 @@ import java.util.Random;
 public class RussianRoulette {
 
     public static void main(String[] args) {
-
         int shots = 0;
-
         int[] cylinder = new int[]{0, 0, 0, 0, 0, 1};
-
         int numberOfTimes = 0;
-
         while(numberOfTimes++ < 600000) {
             Random random = new Random();
             int hole = random.nextInt(6);
