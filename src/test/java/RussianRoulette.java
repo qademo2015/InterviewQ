@@ -6,16 +6,19 @@ import java.util.Random;
 public class RussianRoulette {
 
     public static void main(String[] args) {
-        int count = 0;
-        int[] a = new int[]{0, 0, 0, 0, 0, 1};
+        int shots = 0;
 
-        for (int i = 0; i < 600000; i++){
+        int[] cylinder = new int[]{0, 0, 0, 0, 0, 1};
+
+        for (int times = 0; times < 600000; times++){
             Random random = new Random();
-            int k = random.nextInt(6);
-            if (a[k] == 1){
-                count++;
+            int hole = random.nextInt(6);
+            if (cylinder[hole] == 1){
+                shots++;
             }
         }
-        System.out.println(count);
+
+
+        System.out.println("we made " + shots + " shots");
     }
 }

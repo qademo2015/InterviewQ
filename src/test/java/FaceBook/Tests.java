@@ -52,9 +52,9 @@ public class Tests {
         makeFriends(bella, asad);
         makeFriends(asad, alex);
 
-        List<String> directFriends = inDirectFriends(aaron);
+        List<String> inDirectFriends = inDirectFriends(aaron);
 
-        assertListEquivalent(expectedFriends, directFriends);
+        assertListEquivalent(expectedFriends, inDirectFriends);
 
         System.out.println("testGetInDirectFriends() passed successfully");
     }

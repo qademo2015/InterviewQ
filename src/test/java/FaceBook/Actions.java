@@ -1,7 +1,6 @@
 package FaceBook;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -45,7 +44,7 @@ public class Actions {
         return result;
     }
 
-    public static List<String> breathFirstSearch(Friend root){
+    public static List<String> breadthFirstSearch(Friend root){
 
         List<String> result = new ArrayList<String>();
 
@@ -66,14 +65,12 @@ public class Actions {
             }
         }
 
-        HashMap<String, Integer> map;
-
         return result;
 
     }
 
     public static List<String> inDirectFriends(Friend friend){
 
-        return breathFirstSearch(friend);
+        return breadthFirstSearch(friend);
     }
 }
